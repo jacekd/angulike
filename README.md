@@ -1,7 +1,7 @@
 angulike
 ========
 
-AngularJS directives for social sharing buttons - Facebook Like, Google+, Twitter and Pinterest 
+AngularJS directives for social sharing buttons - Facebook Like, Google+, Twitter, Pinterest and Linked In
 
 ###Demo
 
@@ -60,3 +60,10 @@ description and the pin-it-image attribute contains the name of the model object
 <div pin-it="myModel.Name" pin-it-image="myModel.ImageUrl"></div>
 ```
 
+####Linked In
+
+Create an empty div with the *linked-in* attribute
+
+```html
+<div linked-in></div>
+```
