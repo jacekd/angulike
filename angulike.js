@@ -82,7 +82,8 @@
                 return {
                     restrict: 'A',
                     scope: {
-                        tweet: '='
+                        tweet: '=',
+                        count: '='
                     },
                     link: function (scope, element, attrs) {
                         if (!$window.twttr) {
@@ -110,7 +111,7 @@
                                 });
                                 return;
                             } else {
-                                element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-text="' + scope.tweet + '">Tweet</a>');
+                                element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-count="' + scope.count + '" data-text="' + scope.tweet + '">Tweet</a>');
                                 $window.twttr.widgets.load(element.parent()[0]);
                             }
                         }
@@ -192,7 +193,7 @@
 
                         function renderLinkedInButton() {
                             element.html('<script type="IN/Share"></script>');
-                            $window.IN.parse();
+                            $window.IN.init();
                         }
                     }
                 }
