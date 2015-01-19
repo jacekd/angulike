@@ -136,7 +136,7 @@
                                 return;
                             } else {
                                 element.html('<a href="https://twitter.com/share" class="twitter-share-button" ' +
-                                'data-text="' + scope.tweet +
+                                'data-text="' + scope.tweet + '"' +
                                 ' data-url="' + (!!attrs.url ? attrs.url : $window.location.href) + '"' +
                                 (!!attrs.count ? ' data-count="' + attrs.count + '"' : '') +
                                 (!!attrs.via ? ' data-via="' + attrs.via + '"' : '') +
