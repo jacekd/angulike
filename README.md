@@ -100,4 +100,4 @@ Optional parameters:
 |Parameter Name|Comment|
 |-|-|
 |counter|position of the counter as per official [documentation](https://developer.linkedin.com/plugins/share-plugin-generator)|
-|url|Valud URL to be shared|
+|url|Valid URL to be shared|
