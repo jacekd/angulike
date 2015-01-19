@@ -1,7 +1,7 @@
 angulike
 ========
 
-AngularJS directives for social sharing buttons - Facebook Like, Google+, Twitter, Pinterest and Linked In
+AngularJS directives for social sharing buttons - Facebook, Google+, Twitter, Pinterest and Linked In
 
 ###Demo
 
@@ -35,6 +35,20 @@ Optionally you can set the URL for the facebook like button to link to like this
 <div fb-like="myModel.FbLikeUrl"></div>
 ```
 
+###Facebook Share
+
+Create an empty div with the *fb-share* attribute.
+```html
+<div fb-share></div>
+```
+
+Optional parameters:
+
+|Parameter Name|Comment|
+|-|-|
+|href|Valid URL to be shared|
+|layout|Button layout. Please refer to [documentation](https://developers.facebook.com/docs/plugins/share-button) for all possible options|
+
 ####Google+
 
 Create an empty div with the *google-plus* attribute.
@@ -50,6 +64,19 @@ Create an empty div with the *tweet* attribute, the value of the attribute conta
 ```html
 <div tweet="myModel.Name"></div>
 ```
+
+Optional parameters:
+
+|Parameter Name|Comment|
+|-|-|
+|text|If no scope is passed then parameter text value will be set as default text|
+|url|If none set, current URL will be shared|
+|count|Switch off counter with `none` as a value|
+|via|optional|
+|related|optional|
+|hashtags|optional|
+
+Please refer to official [documentation](https://about.twitter.com/resources/buttons#tweet) for examples.
 
 ####Pinterest
 
@@ -67,3 +94,10 @@ Create an empty div with the *linked-in* attribute
 ```html
 <div linked-in></div>
 ```
+
+Optional parameters:
+
+|Parameter Name|Comment|
+|-|-|
+|counter|position of the counter as per official [documentation](https://developer.linkedin.com/plugins/share-plugin-generator)|
+|url|Valud URL to be shared|
