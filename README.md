@@ -45,7 +45,7 @@ Create an empty div with the *fb-share* attribute.
 Optional parameters:
 
 |Parameter Name|Comment|
-|-|-|
+|--------------|-------|
 |href|Valid URL to be shared|
 |layout|Button layout. Please refer to [documentation](https://developers.facebook.com/docs/plugins/share-button) for all possible options|
 
@@ -68,7 +68,7 @@ Create an empty div with the *tweet* attribute, the value of the attribute conta
 Optional parameters:
 
 |Parameter Name|Comment|
-|-|-|
+|--------------|-------|
 |text|If no scope is passed then parameter text value will be set as default text|
 |url|If none set, current URL will be shared|
 |count|Switch off counter with `none` as a value|
@@ -98,6 +98,6 @@ Create an empty div with the *linked-in* attribute
 Optional parameters:
 
 |Parameter Name|Comment|
-|-|-|
+|--------------|-------|
 |counter|position of the counter as per official [documentation](https://developer.linkedin.com/plugins/share-plugin-generator)|
 |url|Valid URL to be shared|
