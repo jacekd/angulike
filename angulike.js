@@ -67,7 +67,7 @@
                             ' fjs.parentNode.insertBefore(js, fjs);' +
                             '}(document, "script", "facebook-jssdk"));</script>' +
                         '<div class="fb-share-button" ' +
-                        ' data-href="' + (!!attrs.href ? attrs.href : window.location.hostname) + '"' +
+                        ' data-href="' + (!!attrs.href ? attrs.href : $window.location.href) + '"' +
                         ' data-layout="' + (!!attrs.layout ? attrs.layout : 'button') + '"' +
                         '></div>');
                     }
@@ -118,6 +118,10 @@
                         var watchAdded = false;
 
                         function renderTweetButton() {
+                            // fallback for no scope
+                            if (!!attrs.text) {
+                                scope.tweet = attrs.text;
+                            }
                             if (!scope.tweet && !watchAdded) {
                                 // wait for data if it hasn't loaded yet
                                 watchAdded = true;
@@ -131,7 +135,14 @@
                                 });
                                 return;
                             } else {
-                                element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-text="' + scope.tweet + '">Tweet</a>');
+                                element.html('<a href="https://twitter.com/share" class="twitter-share-button" ' +
+                                'data-text="' + scope.tweet +
+                                ' data-url="' + (!!attrs.url ? attrs.url : $window.location.href) + '"' +
+                                (!!attrs.count ? ' data-count="' + attrs.count + '"' : '') +
+                                (!!attrs.via ? ' data-via="' + attrs.via + '"' : '') +
+                                (!!attrs.related ? ' data-related="' + attrs.related + '"' : '') +
+                                (!!attrs.hashtags ? ' data-hashtags="' + attrs.hashtags + '"' : '') +
+                                '">Tweet</a>');
                                 $window.twttr.widgets.load(element.parent()[0]);
                             }
                         }
