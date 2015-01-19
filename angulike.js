@@ -54,6 +54,27 @@
             }
         ])
 
+        .directive('fbShare', [
+            '$window', '$rootScope', function ($window, $rootScope) {
+                return {
+                    restrict: 'A',
+                    link: function (scope, element, attrs) {
+                    element.html('<div id="fb-root"></div><script>(function(d, s, id) { ' +
+                        ' var js, fjs = d.getElementsByTagName(s)[0]; ' +
+                            ' if (d.getElementById(id)) return; ' +
+                            ' js = d.createElement(s); js.id = id; ' +
+                            ' js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0"; ' +
+                            ' fjs.parentNode.insertBefore(js, fjs);' +
+                            '}(document, "script", "facebook-jssdk"));</script>' +
+                        '<div class="fb-share-button" ' +
+                        ' data-href="' + (!!attrs.href ? attrs.href : window.location.hostname) + '"' +
+                        ' data-layout="' + (!!attrs.layout ? attrs.layout : 'button') + '"' +
+                        '></div>');
+                    }
+                };
+            }
+        ])
+
         .directive('googlePlus', [
             '$window', function ($window) {
                 return {
@@ -82,8 +103,7 @@
                 return {
                     restrict: 'A',
                     scope: {
-                        tweet: '=',
-                        count: '='
+                        tweet: '='
                     },
                     link: function (scope, element, attrs) {
                         if (!$window.twttr) {
@@ -111,7 +131,7 @@
                                 });
                                 return;
                             } else {
-                                element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-count="' + scope.count + '" data-text="' + scope.tweet + '">Tweet</a>');
+                                element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-text="' + scope.tweet + '">Tweet</a>');
                                 $window.twttr.widgets.load(element.parent()[0]);
                             }
                         }
@@ -192,7 +212,10 @@
                         }
 
                         function renderLinkedInButton() {
-                            element.html('<script type="IN/Share"></script>');
+                            element.html('<script type="IN/Share" '
+                            + (!!attrs.counter ? 'data-counter="' + attrs.counter + '"' : '') +
+                            + (!!attrs.url ? 'data-url="' + attrs.url + '"' : '') +
+                            '></script>');
                             $window.IN.init();
                         }
                     }
